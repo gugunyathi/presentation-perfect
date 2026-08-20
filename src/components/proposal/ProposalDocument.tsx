@@ -1,6 +1,6 @@
 import { meta, contact, sections, type Block, type Section } from "@/data/proposal";
 import coverImg from "@/assets/cover-skyline.jpg";
-import ribbonLogo from "@/assets/ribbon-logo.png.asset.json";
+import ribbonLogo from "@/assets/ribbon-logo.png";
 import smeImg from "@/assets/sme-entrepreneurs.jpg";
 import networkImg from "@/assets/onchain-network.jpg";
 import mobileImg from "@/assets/mobile-access.jpg";
@@ -184,7 +184,7 @@ export function ProposalDocument() {
             <div>
               <div className="inline-block rounded-sm bg-white px-4 py-3">
                 <img
-                  src={ribbonLogo.url}
+                  src={ribbonLogo}
                   alt="Ribbon Protocol logo"
                   width={428}
                   height={205}
