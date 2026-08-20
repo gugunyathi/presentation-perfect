@@ -1,24 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ExportBar } from "@/components/proposal/ExportBar";
+import { ProposalDocument } from "@/components/proposal/ProposalDocument";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Tokenized RWAs for ZEEX | Ribbon Protocol Proposal" },
+      {
+        name: "description",
+        content:
+          "Ribbon Protocol proposal to ZSE Holdings: onchain capital markets infrastructure, $ZIG stablecoin, global liquidity and Base Ecosystem funding for ZEEX.",
+      },
+      { property: "og:title", content: "Tokenized RWAs for ZEEX | Ribbon Protocol Proposal" },
+      {
+        property: "og:description",
+        content:
+          "Onchain capital markets infrastructure, global liquidity and Base Ecosystem funding for the Zimbabwe Entrepreneurship Exchange.",
+      },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="min-h-screen bg-mist pb-10">
+      <ExportBar />
+      <ProposalDocument />
+    </main>
   );
 }
