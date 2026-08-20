@@ -26,6 +26,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("print") !== "1") return;
+    // Wait for fonts + images so the PDF is pixel-faithful.
+    const start = () => window.setTimeout(() => window.print(), 400);
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+  }, []);
+
   return (
     <main className="min-h-screen bg-mist pb-10">
       <ExportBar />
