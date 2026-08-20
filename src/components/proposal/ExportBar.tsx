@@ -53,15 +53,26 @@ export function ExportBar() {
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-4">
         <div>
           <p className="text-[10px] font-semibold tracking-[0.28em] text-azure">
-            SIGNAL DESK · FRONTIER TECHNOLOGY DEVELOPMENT
+            RIBBON PROTOCOL · FRONTIER TECHNOLOGY DEVELOPMENT
           </p>
           <p className="mt-1 text-sm text-white/70">
-            Tokenized Real World Assets for ZEEX — SD-ZEEX-RWA-2026-01
+            Tokenized Real World Assets for ZEEX — {meta.reference}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button onClick={handlePrint}>
-            <Printer className="h-4 w-4" /> Download PDF
+          <Button onClick={() => void handlePdf()}>
+            {pdfProgress ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                {pdfProgress.total
+                  ? `Building PDF ${pdfProgress.done}/${pdfProgress.total}`
+                  : "Building PDF…"}
+              </>
+            ) : (
+              <>
+                <Download className="h-4 w-4" /> Download PDF
+              </>
+            )}
           </Button>
           <Button variant="outline" onClick={() => void downloadPptx()}>
             <FileDown className="h-4 w-4" /> PowerPoint
