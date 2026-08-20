@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { FileDown, Presentation, Printer, Check } from "lucide-react";
+import { FileDown, Presentation, Download, Check, Loader2 } from "lucide-react";
 import { downloadPptx } from "@/lib/export-pptx";
+import { downloadPdf } from "@/lib/export-pdf";
+import { meta } from "@/data/proposal";
 
 function Button({
   onClick,
