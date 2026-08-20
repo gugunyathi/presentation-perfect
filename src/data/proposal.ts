@@ -6,7 +6,7 @@ export const meta = {
     "A Proposal to ZSE Holdings for Onchain Capital Markets Infrastructure, Global Liquidity and Base Ecosystem Funding",
   from: "Ribbon Protocol — Frontier Technology Development",
   to: "ZSE Holdings — Zimbabwe Entrepreneurship Exchange (ZEEX)",
-  role: "Project Manager / Investment Agent & Technology Integration Architect",
+  role: "CEO (Chief Executive Officer)",
   date: "August 2026",
   reference: "SD-ZEEX-RWA-2026-01",
   confidential:
@@ -16,7 +16,7 @@ export const meta = {
 export const contact = {
   heading: "Proposal Lead & Executive Contact",
   name: "Gugu Nyathi",
-  role: "CIO (Chief Information Officer), Ribbon Protocol",
+  role: "CEO (Chief Executive Officer), Ribbon Protocol",
   assignment:
     "Frontier Technology Development — Integration Architect & Investment Lead",
   email: "gugu@ribbonprotocol.org",
