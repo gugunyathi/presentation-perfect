@@ -7,8 +7,8 @@ export const meta = {
   from: "Ribbon Protocol — Frontier Technology Development",
   to: "ZSE Holdings — Zimbabwe Entrepreneurship Exchange (ZEEX)",
   role: "CEO (Chief Executive Officer)",
-  date: "August 2026",
-  reference: "SD-ZEEX-RWA-2026-01",
+  date: "20 August 2026",
+  reference: "RB-ZEEX-RWA-2026-01",
   confidential:
     "Private & Confidential — For the attention of the Chief Executive Officer, ZSE Holdings",
 };
