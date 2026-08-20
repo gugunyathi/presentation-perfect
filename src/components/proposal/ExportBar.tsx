@@ -28,17 +28,19 @@ function Button({
 
 export function ExportBar() {
   const [slidesHint, setSlidesHint] = useState(false);
+  const [pdfProgress, setPdfProgress] = useState<{ done: number; total: number } | null>(null);
 
-  // Printing from inside an embedded preview iframe is unreliable (and prints
-  // the wrong frame), so open the document standalone and let it auto-print.
-  const handlePrint = () => {
-    const embedded = typeof window !== "undefined" && window.self !== window.top;
-    if (embedded) {
-      window.open(`${window.location.pathname}?print=1`, "_blank", "noopener");
-      return;
+  // Generates the PDF in the browser and downloads the file directly.
+  const handlePdf = async () => {
+    if (pdfProgress) return;
+    setPdfProgress({ done: 0, total: 0 });
+    try {
+      await downloadPdf((done, total) => setPdfProgress({ done, total }));
+    } finally {
+      setPdfProgress(null);
     }
-    window.print();
   };
+
 
   const handleGoogleSlides = async () => {
     await downloadPptx();
