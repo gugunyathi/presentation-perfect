@@ -27,6 +27,17 @@ function Button({
 export function ExportBar() {
   const [slidesHint, setSlidesHint] = useState(false);
 
+  // Printing from inside an embedded preview iframe is unreliable (and prints
+  // the wrong frame), so open the document standalone and let it auto-print.
+  const handlePrint = () => {
+    const embedded = typeof window !== "undefined" && window.self !== window.top;
+    if (embedded) {
+      window.open(`${window.location.pathname}?print=1`, "_blank", "noopener");
+      return;
+    }
+    window.print();
+  };
+
   const handleGoogleSlides = async () => {
     await downloadPptx();
     setSlidesHint(true);
